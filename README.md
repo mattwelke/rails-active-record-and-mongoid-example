@@ -5,20 +5,20 @@ User is an ActiveRecord model and Post is a Mongoid model. In this example, one 
 
 # Example:
 
-# Create a user
-bob = User.create(email: 'bob@email.com')
+Create a user
+`bob = User.create(email: 'bob@email.com')`
 
-# Create a post
-greeting = Post.new(title: 'Hello', body: 'World')
+Create a post
+`greeting = Post.new(title: 'Hello', body: 'World')`
 
-# Associate
-greeting.user = bob
+Associate
+`greeting.user = bob`
 
-# Persist model with foreign key (post)
-greeting.save
+Persist model with foreign key (post)
+`greeting.save`
 
-# Get the post's user
-greeting.user
+Get the post's user
+`greeting.user`
 
-# Get the user's posts (Array)
-bob.posts
+Get the user's posts (Array)
+`bob.posts`
