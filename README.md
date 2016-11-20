@@ -6,7 +6,7 @@ User is an ActiveRecord model and Post is a Mongoid model. In this example, one 
 # Example:
 
 Create a user
-> bob = User.create(email: 'bob@email.com')
+> `bob = User.create(email: 'bob@email.com')`
 
 Create a post
 `greeting = Post.new(title: 'Hello', body: 'World')`
