@@ -19,6 +19,12 @@ Persist model with foreign key (post)
 
 Get the post's user
 > `greeting.user`
+> `=> #<User>`
 
-Get the user's posts (Array)
+Get the user's posts
 > `bob.posts`
+> `=> #<Mongoid::Criteria>`
+
+Build a 'posts' Mongoid query
+> `bob.posts.find_by(title: 'Hello')`
+> `=> #<Post>`
