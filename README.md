@@ -1,24 +1,15 @@
-# README
+# rails-example-active-record-and-mongoid
+An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+User is an ActiveRecord model and Post is a Mongoid model. In this example, one user is associated with many posts.
 
-Things you may want to cover:
+# Example:
 
-* Ruby version
+## Create a User:
+bob = User.create(email: 'bob@email.com')
 
-* System dependencies
+## Create a Post:
+greeting = Post.new(title: 'Hello', body: 'World')
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Associate
+greeting.user = bob
