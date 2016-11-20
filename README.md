@@ -9,16 +9,16 @@ Create a user
 > `bob = User.create(email: 'bob@email.com')`
 
 Create a post
-`greeting = Post.new(title: 'Hello', body: 'World')`
+> `greeting = Post.new(title: 'Hello', body: 'World')`
 
 Associate
-`greeting.user = bob`
+> `greeting.user = bob`
 
 Persist model with foreign key (post)
-`greeting.save`
+> `greeting.save`
 
 Get the post's user
-`greeting.user`
+> `greeting.user`
 
 Get the user's posts (Array)
-`bob.posts`
+> `bob.posts`
