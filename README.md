@@ -1,30 +1,59 @@
 # rails-example-active-record-and-mongoid
+
 An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 
 User is an ActiveRecord model and Post is a Mongoid model. In this example, one user is associated with many posts.
 
-# Example:
+## Example:
 
-Create a user
-> `bob = User.create(email: 'bob@email.com')`
+### Create a user
 
-Create a post
-> `greeting = Post.new(title: 'Hello', body: 'World')`
+```ruby
+bob = User.create(email: 'bob@email.com')
+```
 
-Associate
-> `greeting.user = bob`
+### Create a post
 
-Persist model with foreign key (post)
-> `greeting.save`
+```ruby
+greeting = Post.new(title: 'Hello', body: 'World')
+```
 
-Get the post's user
-> `greeting.user`
-> `=> #<User>`
+### Associate post with user
 
-Get the user's posts
-> `bob.posts`
-> `=> #<Mongoid::Criteria>`
+This sets the post's User foreign key to the user's primary key value. It is not yet persisted in the database.
 
-Build a 'posts' Mongoid query
-> `bob.posts.find_by(title: 'Hello')`
-> `=> #<Post>`
+```ruby
+greeting.user = bob
+```
+
+### Persist post
+
+This persists the foreign key change in the database, permanantly associating the models.
+
+```ruby
+greeting.save
+```
+
+### Get the post's user
+
+Returns type **User** because this is the **one** side of a **one-to-many** relationship.
+
+```ruby
+greeting.user
+```
+
+### Get the user's posts
+
+Returns type **Mongoid::Criteria** because this is the **many** side of a **one-to-many** relationship. 
+
+```ruby
+bob.posts
+```
+
+This allows a Mongoid query to be chained to filter the posts.
+
+```ruby
+bob.posts.find_by(title: 'Hello')
+```
+
+If the query targets only one post, this returns type **Post**.
