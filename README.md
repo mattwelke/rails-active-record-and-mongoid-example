@@ -57,3 +57,19 @@ bob.posts.find_by(title: 'Hello')
 ```
 
 If the query targets only one post, this returns type **Post**.
+
+### Hitting both data stores
+
+Note that some queries will perform synchronous reads from both data stores.
+
+```ruby
+User.find_by(name: 'Bob').posts.where(title: 'Hello') # Hits Users in Postgres, then Posts in MongoDB
+```
+
+Consideration storing references during controller actions to minimize data store hits.
+
+```ruby
+bob = User.find_by(name: 'Bob') # store reference to user
+hello_posts = bob.posts.where(title: 'Hello') # now, only need to hit MongoDB for any posts for this user
+goodbye_posts = bob.posts.where(title: 'Goodbye')
+```
