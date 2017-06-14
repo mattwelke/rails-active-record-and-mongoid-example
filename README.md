@@ -20,7 +20,7 @@ greeting = Post.new(title: 'Hello', body: 'World')
 
 ### Associate post with user
 
-This sets the post's User foreign key to the user's primary key value. It is not yet persisted in the database.
+This sets the post's User foreign key to the user's primary key value (posts are the **many** side of a **one-to-many** relationship. It is not yet persisted in the database.
 
 ```ruby
 greeting.user = bob
@@ -68,11 +68,28 @@ User.find_by(name: 'Bob').posts.where(title: 'Hello') # Hits Users in Postgres, 
 
 Consider storing references during controller actions to minimize data store hits.
 
+Instead of doing this:
+
 ```ruby
-# store reference to user
+# Find bob's "hello" posts
+hello_posts = User.find_by(name: 'Bob').posts.where(title: 'Hello')
+# Then, find bob's "goodbye" posts
+goodbye_posts = User.find_by(name: 'Bob').posts.where(title: 'Goodbye')
+```
+
+Do this:
+
+```ruby
+# store reference to Bob
 bob = User.find_by(name: 'Bob')
 
-# now, only need to hit MongoDB for any posts for this user
+# now, only need to hit MongoDB for any posts for this user (won't hit Postgres again)
 hello_posts = bob.posts.where(title: 'Hello')
 goodbye_posts = bob.posts.where(title: 'Goodbye')
 ```
+
+### Details
+
+See the model code in this repo to see how defining methods on each model that interact with the other data store's API links the models together, as if you were using just ActiveRecord or just Mongoid.
+
+These concepts apply to more than just ActiveRecord and Mongoid. You can link models from any persistence mechanism, including databases, REST endpoints, memory caches, etc, by defining methods like these.
