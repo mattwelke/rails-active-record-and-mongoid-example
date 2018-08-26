@@ -1,4 +1,4 @@
-# rails-example-active-record-and-mongoid
+# example-rails-active-record-and-mongoid
 
 An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 

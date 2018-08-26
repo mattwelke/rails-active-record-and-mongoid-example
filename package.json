@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
-  "private": true,
+  "name": "example-rails-active-record-and-mongoid",
+  "private": false,
   "dependencies": {}
 }
