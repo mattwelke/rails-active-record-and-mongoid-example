@@ -5,12 +5,16 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: active_record_and_mongoid_development
+      database: my_app_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
         - localhost:27017
       options:
+        # Note that all options listed below are Ruby driver client options (the mongo gem).
+        # Please refer to the driver documentation of the version of the mongo gem you are using
+        # for the most up-to-date list of options.
+        #
         # Change the default write concern. (default = { w: 1 })
         # write:
         #   w: 1
@@ -34,8 +38,9 @@ development:
         #   - 'dbOwner'
 
         # Change the default authentication mechanism. Valid options are: :scram,
-        # :mongodb_cr, :mongodb_x509, and :plain. (default on 3.0 is :scram, default
-        # on 2.4 and 2.6 is :plain)
+        # :mongodb_cr, :mongodb_x509, and :plain. Note that all authentication
+        # mechanisms require username and password, with the exception of :mongodb_x509.
+        # Default on mongoDB 3.0 is :scram, default on 2.4 and 2.6 is :plain.
         # auth_mech: :scram
 
         # The database or source to authenticate the user against.
@@ -51,8 +56,8 @@ development:
         # via ismaster commands. (default: 10)
         # heartbeat_frequency: 10
 
-        # The time in seconds for selecting servers for a near read preference. (default: 5)
-        # local_threshold: 5
+        # The time in seconds for selecting servers for a near read preference. (default: 0.015)
+        # local_threshold: 0.015
 
         # The timeout in seconds for selecting a server for an operation. (default: 30)
         # server_selection_timeout: 30
@@ -121,6 +126,10 @@ development:
     # existing method. (default: false)
     # scope_overwrite_exception: false
 
+    # Raise an error when defining a field with the same name as an
+    # existing method. (default: false)
+    # duplicate_fields_exception: false
+
     # Use Active Support's time zone in conversions. (default: true)
     # use_activesupport_time_zone: true
 
@@ -131,10 +140,22 @@ development:
     # environment. The Mongoid logger will be set to the Rails logger
     # otherwise.(default: :info)
     # log_level: :info
+
+    # Control whether `belongs_to` association is required. By default
+    # `belongs_to` will trigger a validation error if the association
+    # is not present. (default: true)
+    # belongs_to_required_by_default: true
+
+    # Application name that is printed to the mongodb logs upon establishing a
+    # connection in server versions >= 3.4. Note that the name cannot exceed 128 bytes.
+    # app_name: MyApplicationName
+
+    # Use background indexes by default if `background` option not specified. (default: false)
+    # background_indexing: false
 test:
   clients:
     default:
-      database: active_record_and_mongoid_test
+      database: my_app_test
       hosts:
         - localhost:27017
       options:

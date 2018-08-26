@@ -4,6 +4,11 @@ An example Rails app demonstrating using both ActiveRecord and Mongoid, includin
 
 User is an ActiveRecord model and Post is a Mongoid model. In this example, one user is associated with many posts.
 
+## Running
+
+1. Ensure the required gems are installed.
+1. Ensure MongoDB is running. If you have Docker and docker-compose installed, you can use `docker-compose up` to create a stack that includes MongoDB.
+
 ## Example:
 
 ### Create a user
