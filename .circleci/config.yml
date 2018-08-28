@@ -44,7 +44,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            rails test
+            bundle exec rails test
 
       # collect reports
       - store_test_results:
