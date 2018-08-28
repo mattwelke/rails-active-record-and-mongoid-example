@@ -1,8 +1,14 @@
 # example-rails-active-record-and-mongoid
 
+[![CircleCI](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master.svg?style=svg)](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master)
+
 An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 
 User is an ActiveRecord model and Post is a Mongoid model. In this example, one user is associated with many posts.
+
+## Prepare for use
+
+The project is set up to use CircleCI to help with Dependabot keeping the dependencies up to date. If you plan to not use CI or to use CI other than CircleCI, you can clean out CircleCI-related code from the project with the command `rm -r .circleci` from the project root.
 
 ## Running
 
