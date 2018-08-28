@@ -44,7 +44,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            bundle exec rails test
+            DISABLE_SPRING=true bundle exec rails test
 
       # collect reports
       - store_test_results:
