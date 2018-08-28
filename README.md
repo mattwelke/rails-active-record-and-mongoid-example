@@ -1,6 +1,8 @@
 # example-rails-active-record-and-mongoid
 
-[![CircleCI](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master.svg?style=svg)](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master)
+| Branch | Test result |
+|--------|-------------|
+| Master | [![CircleCI](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master.svg?style=svg)](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master) |
 
 An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 
