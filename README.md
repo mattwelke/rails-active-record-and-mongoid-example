@@ -2,7 +2,8 @@
 
 | Branch | Test result |
 |--------|-------------|
-| Master | [![CircleCI](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master.svg?style=svg)](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master) |
+| Master | [![CircleCI](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master.svg?style=svg)](https://circleci.com/gh/welkie/example-rails-active-record-and-mongoid/tree/master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwelkie%2Fexample-rails-active-record-and-mongoid.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwelkie%2Fexample-rails-active-record-and-mongoid?ref=badge_shield)
+|
 
 An example Rails app demonstrating using both ActiveRecord and Mongoid, including an association between two models stored in different databases.
 
@@ -106,3 +107,7 @@ goodbye_posts = bob.posts.where(title: 'Goodbye')
 See the model code in this repo to see how defining methods on each model that interact with the other data store's API links the models together, as if you were using just ActiveRecord or just Mongoid.
 
 These concepts apply to more than just ActiveRecord and Mongoid. You can link models from any persistence mechanism, including databases, REST endpoints, memory caches, etc, by defining methods like these.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwelkie%2Fexample-rails-active-record-and-mongoid.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwelkie%2Fexample-rails-active-record-and-mongoid?ref=badge_large)
