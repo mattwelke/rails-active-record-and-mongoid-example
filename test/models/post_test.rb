@@ -14,5 +14,7 @@ class UserTest < ActiveSupport::TestCase
     u.posts.append(p)
     u.save
     puts 'Post associated with user.'
+    puts "Post title: #{p.title}"
+    puts "Post body: #{p.body}"
   end
 end
