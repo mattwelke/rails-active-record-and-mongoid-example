@@ -65,4 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gems added for MongoDB
 
-gem 'mongoid', '~> 7.0'
+gem 'mongoid', '~> 7.1'
