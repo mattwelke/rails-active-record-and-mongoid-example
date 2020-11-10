@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
     puts 'Post created.'
   end
 
-  test "can create posts for user" do
+  test "can create post for user" do
     u = User.create(email: 'test@email.com')
     puts 'User created.'
     p = Post.create(title: "Some Title", body: "Some body.")
