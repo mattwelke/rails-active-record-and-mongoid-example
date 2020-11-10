@@ -9,4 +9,8 @@ class UserTest < ActiveSupport::TestCase
     assert u.updated_at != nil
     puts "User updated_at: #{u.updated_at}"
   end
+
+  test "can create post" do
+    p = Post.create()
+  end
 end
