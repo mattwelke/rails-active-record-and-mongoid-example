@@ -1,11 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
-
-name: Test
+name: Run tests
 
 on:
   pull_request:
@@ -13,33 +6,16 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
     services:
       mongo:
-        image: mongo:4.4
-        credentials:
-          username: ${{ secrets.docker_hub_id }}
-          password: ${{ secrets.docker_hub_password }}
+        image: 'mongo:4.4'
         ports: ['27017:27017']
-
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.1
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+        ruby-version: 2.7
     - name: Install dependencies
       run: bundle install
     - name: Run tests
